@@ -1,5 +1,57 @@
 .container{
     animation: transitionIn 3s;
+    padding-top: 20px;
+    padding-bottom: 12%;
+}
+
+.judul {
+    padding-top: 50px;
+}
+
+h1{
+    text-align: center;
+}
+
+.judulkendaraan{
+    text-align: center;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.subjudul {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.kotak {
+    width: 350px;
+    background: white;
+    margin: 80px auto;
+    padding: 30px 20px;
+}
+
+.form{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    font-size: 11pt;
+    margin-bottom: 20px;
+}
+
+.form-select{
+    font-size: 10pt;
+}
+
+label{
+    font-size: 12pt;
+    font-weight: 500;
+}
+
+.harga{
+    text-align: center;
+    font-weight: bold;
+    font-size: 15pt;
 }
 
 @keyframes transitionIn{
@@ -10,3 +62,4 @@
         opacity: 1;
     }
 }
+

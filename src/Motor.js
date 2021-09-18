@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './Rental.css';
 import NumberFormat from 'react-number-format';
 
 class Motor extends React.Component {
@@ -8,12 +8,12 @@ class Motor extends React.Component {
         this.handleChangeMotor = this.handleChangeMotor.bind(this)
         this.state = {
             motor: [
-                ['Sport', 50000],
+                ['Bebek', 50000],
                 ['Standard/Naked', 100000],
                 ['Cruiser', 125000],
                 ['Trail', 150000],
-                ['Bebek', 175000],
-                ['Skuter Matik', 200000]
+                ['Skuter Matik', 175000],
+                ['Sport', 200000]
             ],
 
             menu: {
@@ -66,35 +66,28 @@ class Motor extends React.Component {
         } = this.state
         return (
             <>
-                <div className='container'>
-                    <div className='tips-content'>
-                        <h2>Rental Motor</h2>
-                        <div class="row mb-3">
-                            <label class="col-sm-4 col-form-label">Judul Buku<span>:</span></label>
-                            <div class="col-sm-8">
-                                <select onChange={this.handleChangeMotor} name='jenis_motor' class="form-select">
-                                    <option value='0'>Pilih Rental Motor</option>
-                                    <Fragment>
-                                        {
-                                            motor.map(motor => {
-                                                return (
-                                                    <option value={motor[1]}>{motor[0]} - Rp.{motor[1]}</option>
-                                                )
-                                            })
-                                        }
-                                    </Fragment>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-4 col-form-label">Lama Hari<span>:</span></label>
-                            <div class="col-sm-8">
-                                <input type="text" pattern="[0-9]*" class="form-control"
-                                    onInput={this.handleChangeJumlahHari.bind(this)} value={this.state.jumlahHari} />
-                            </div>
-                        </div>
-                        <h2>Total Harga Rental Motor:<NumberFormat value={totalHargaMotor * jumlahHari} displayType={'text'} thousandSeparator={true} prefix={'Rp.'} /></h2>
-                    </div>
+                <div class="judulkendaraan">Rental Motor</div>
+                <div class="form">
+                    <label>Jenis Motor</label>
+                    <select onChange={this.handleChangeMotor} name='jenis_motor' class="form-select">
+                        <option value='0'>Pilih Rental Motor</option>
+                        <Fragment>
+                            {
+                                motor.map(motor => {
+                                    return (
+                                        <option value={motor[1]}>{motor[0]} - Rp {motor[1]} per hari</option>
+                                    )
+                                })
+                            }
+                        </Fragment>
+                    </select>
+                    <label>Lama Hari</label>
+                    <input type="text" pattern="[0-9]*" class="form-control"
+                        onInput={this.handleChangeJumlahHari.bind(this)} value={this.state.jumlahHari} />
+                </div>
+                <div class="harga">Total Harga Rental:</div>
+                <div class="harga">
+                    <NumberFormat value={totalHargaMotor * jumlahHari} displayType={'text'} thousandSeparator={true} prefix={'Rp.'} />
                 </div>
             </>
         )
